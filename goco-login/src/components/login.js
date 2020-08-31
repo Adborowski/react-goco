@@ -97,8 +97,6 @@ export default class Login extends React.Component{
                     {this.state.usernameError && <p> {this.state.usernameError} </p>}
                     {this.state.passwordError && <p> {this.state.passwordError} </p>}
 
-                    
-                    
                 </form> 
 
             </div>

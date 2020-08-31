@@ -5,13 +5,12 @@ export default class Login extends React.Component{
 
     state = {
         correctUsername: "adam@goco.dk",
-        correctPassword: "GOodCOmpany",
         activeUsername: "",
+        usernameError: "",
         activePassword: "",
-        errorMessage: {
-            usernameError: "",
-            passwordError: "" 
-        }
+        correctPassword: "GOodCOmpany",
+        passwordError: "" 
+        
     }
 
     handleChange = (e) => {
@@ -22,14 +21,29 @@ export default class Login extends React.Component{
         if (e.target.name === "txtUsername"){ (
             this.setState({activeUsername:e.target.value}));
 
-            // validate the username
-            if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.activeUsername)){console.log("validation ok")};
+            // validate the username (regex email validation)
+            if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.activeUsername) === false){
+                this.setState({usernameError: "Please enter a valid email"});
+            } else {
+                this.setState({usernameError: ""});
+            }
         };
 
         // handle password change
+
         if (e.target.name === "txtPassword"){
+
             (this.setState({activePassword:e.target.value}))
+
+            // validate the password ('required' validation)
+            if (e.target.value.length === 0){
+                this.setState({passwordError: "Password is required"})
+            } else {
+                this.setState({passwordError: ""})
+            }
         };
+
+        console.log(this.state);
 
     };
 
@@ -63,7 +77,7 @@ export default class Login extends React.Component{
                         placeholder="Your username">
                     </input>
 
-                    {this.state.errorMessage.usernameError && <p> {this.state.errorMessage.usernameError} </p>}
+                    
 
                     <input 
                         onChange={this.handleChange} 
@@ -74,7 +88,8 @@ export default class Login extends React.Component{
                         placeholder="Your password">
                     </input>
 
-                    {this.state.errorMessage.passwordError && <p> {this.state.errorMessage.passwordError} </p>}
+                    {this.state.usernameError && <p> {this.state.usernameError} </p>}
+                    {this.state.passwordError && <p> {this.state.passwordError} </p>}
 
                     <button className="button">Submit</button>
                     

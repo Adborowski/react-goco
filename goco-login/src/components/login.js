@@ -7,10 +7,9 @@ export default class Login extends React.Component{
         correctUsername: "adam@goco.dk",
         activeUsername: "",
         usernameError: "",
-
         activePassword: "",
         correctPassword: "GOodCOmpany",
-        passwordError: "" 
+        passwordError: "",
     }
 
     handleChange = (e) => {
@@ -39,8 +38,6 @@ export default class Login extends React.Component{
         
     }
 
-
-
     validateCredentials = (e) => {
 
         // validate the username (regex email validation)
@@ -48,6 +45,7 @@ export default class Login extends React.Component{
             this.setState({usernameError: "Please enter a valid email"});
         } else {
             this.setState({usernameError: ""});
+            
         }
 
         // validate the password ('required' validation)
@@ -94,7 +92,7 @@ export default class Login extends React.Component{
                         placeholder="Your password">
                     </input>
 
-                    <button disabled={this.state.usernameError || this.state.passwordError} className="button">Submit</button>
+                    <button disabled={this.state.usernameError || this.state.passwordError || !this.state.activePassword} className="button">Submit</button>
 
                     {this.state.usernameError && <p> {this.state.usernameError} </p>}
                     {this.state.passwordError && <p> {this.state.passwordError} </p>}

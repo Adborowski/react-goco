@@ -10,7 +10,6 @@ export default class Login extends React.Component{
         activePassword: "",
         correctPassword: "GOodCOmpany",
         passwordError: "" 
-        
     }
 
     handleChange = (e) => {
@@ -30,7 +29,6 @@ export default class Login extends React.Component{
         };
 
         // handle password change
-
         if (e.target.name === "txtPassword"){
 
             (this.setState({activePassword:e.target.value}))
@@ -69,7 +67,7 @@ export default class Login extends React.Component{
                 <form className="form-login" onSubmit={this.handleLogin}> 
 
                     <input 
-                        onChange={this.handleChange} 
+                        onBlur={this.handleChange} 
                         className="login-input" 
                         id="txtUsername" 
                         type="text" 
@@ -80,7 +78,7 @@ export default class Login extends React.Component{
                     
 
                     <input 
-                        onChange={this.handleChange} 
+                        onBlur={this.handleChange} 
                         className="login-input" 
                         id="txtPassword" 
                         type="password" 

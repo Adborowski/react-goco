@@ -30,8 +30,6 @@ export default class Login extends React.Component{
 
         console.log(this.state);
 
-
-
     }
 
     handleSubmit = (e) => {

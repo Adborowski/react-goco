@@ -2,8 +2,19 @@
 
 export default class Login extends React.Component{
 
-    handleLogin = (event) => {
-        event.preventDefault(); // stop the input text from showing in url
+    handleLogin = (e) => {
+
+        e.preventDefault(); // stop the input text from showing in url
+
+        const enteredUsername = e.target.txtUsername.value;
+        const enteredPassword = e.target.txtPassword.value;
+
+        const correctUsername = "adam@goco.dk";
+        const correctPassword = "GOodCOmpany";
+
+        if (enteredUsername === correctUsername && enteredPassword === correctPassword){
+            alert("Login successful");
+        }
         
     }
 

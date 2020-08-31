@@ -1,14 +1,30 @@
 ﻿import React from 'react';
 
-// stateless functional component
-const Login = (props) => (
-    
-    <div className="login">
+export default class Login extends React.Component{
 
-        <p> This is a test. </p>
+    handleLogin = (event) => {
+        event.preventDefault(); // stop the input text from showing in url
+        
+    }
 
-    </div>
-);
+    render(){
 
+        return(
 
-export default Login;
+            <div className="login">
+
+                <p> Backboard </p>
+
+                <form className="form-login" onSubmit={this.handleLogin}> 
+                    <input className="login-input" id="txtUsername" type="text" name="txtUsername" placeholder="Your username"></input>
+                    <input className="login-input" id="txtPassword" type="password" name="txtPassword" placeholder="Your password"></input>
+                    <button className="button">Submit</button>
+                </form> 
+
+            </div>
+
+        )
+
+    }
+
+}

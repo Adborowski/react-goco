@@ -7,7 +7,11 @@ export default class Login extends React.Component{
         correctUsername: "adam@goco.dk",
         correctPassword: "GOodCOmpany",
         activeUsername: "",
-        activePassword: ""
+        activePassword: "",
+        errorMessage: {
+            usernameError: "",
+            passwordError: "" 
+        }
     }
 
     handleChange = (e) => {
@@ -39,9 +43,31 @@ export default class Login extends React.Component{
                 <p> Dunkit </p>
 
                 <form className="form-login" onSubmit={this.handleLogin}> 
-                    <input onChange={this.handleChange} className="login-input" id="txtUsername" type="text" name="txtUsername" placeholder="Your username"></input>
-                    <input onChange={this.handleChange} className="login-input" id="txtPassword" type="password" name="txtPassword" placeholder="Your password"></input>
+
+                    <input 
+                        onChange={this.handleChange} 
+                        className="login-input" 
+                        id="txtUsername" 
+                        type="text" 
+                        name="txtUsername" 
+                        placeholder="Your username">
+                    </input>
+
+                    {this.state.errorMessage.usernameError && <p> {this.state.errorMessage.usernameError} </p>}
+
+                    <input 
+                        onChange={this.handleChange} 
+                        className="login-input" 
+                        id="txtPassword" 
+                        type="password" 
+                        name="txtPassword" 
+                        placeholder="Your password">
+                    </input>
+                    
+                    {this.state.errorMessage.passwordError && <p> {this.state.errorMessage.passwordError} </p>}
+
                     <button className="button">Submit</button>
+                    
                 </form> 
 
             </div>

@@ -7,6 +7,7 @@ export default class Login extends React.Component{
         correctUsername: "adam@goco.dk",
         activeUsername: "",
         usernameError: "",
+
         activePassword: "",
         correctPassword: "GOodCOmpany",
         passwordError: "" 
@@ -19,38 +20,47 @@ export default class Login extends React.Component{
         // handle username change
         if (e.target.name === "txtUsername"){ (
             this.setState({activeUsername:e.target.value}));
-
-            // validate the username (regex email validation)
-            if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.activeUsername) === false){
-                this.setState({usernameError: "Please enter a valid email"});
-            } else {
-                this.setState({usernameError: ""});
-            }
-        };
+        }
 
         // handle password change
         if (e.target.name === "txtPassword"){
 
             (this.setState({activePassword:e.target.value}))
-
-            // validate the password ('required' validation)
-            if (e.target.value.length === 0){
-                this.setState({passwordError: "Password is required"})
-            } else {
-                this.setState({passwordError: ""})
-            }
         };
 
         console.log(this.state);
 
-    };
 
-    handleLogin = (e) => {
+
+    }
+
+    handleSubmit = (e) => {
 
         e.preventDefault(); 
         console.log(this.state);
         
     }
+
+
+
+    validateCredentials = (e) => {
+
+        // validate the username (regex email validation)
+        if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.activeUsername) === false){
+            this.setState({usernameError: "Please enter a valid email"});
+        } else {
+            this.setState({usernameError: ""});
+        }
+
+        // validate the password ('required' validation)
+        if (e.target.value.length === 0){
+            this.setState({passwordError: "Password is required"})
+        } else {
+            this.setState({passwordError: ""})
+        }
+
+    }
+                
 
     render(){
 
@@ -64,10 +74,11 @@ export default class Login extends React.Component{
 
                 <p> Dunkit </p>
 
-                <form className="form-login" onSubmit={this.handleLogin}> 
+                <form className="form-login" onSubmit={this.handleSubmit}> 
 
                     <input 
-                        onBlur={this.handleChange} 
+                        onChange={this.handleChange}
+                        onBlur={this.validateCredentials}
                         className="login-input" 
                         id="txtUsername" 
                         type="text" 
@@ -75,10 +86,9 @@ export default class Login extends React.Component{
                         placeholder="Your username">
                     </input>
 
-                    
-
                     <input 
-                        onBlur={this.handleChange} 
+                        onChange={this.handleChange}
+                        onBlur={this.validateCredentials} 
                         className="login-input" 
                         id="txtPassword" 
                         type="password" 
@@ -86,10 +96,12 @@ export default class Login extends React.Component{
                         placeholder="Your password">
                     </input>
 
+                    <button disabled={this.state.usernameError || this.state.passwordError} className="button">Submit</button>
+
                     {this.state.usernameError && <p> {this.state.usernameError} </p>}
                     {this.state.passwordError && <p> {this.state.passwordError} </p>}
 
-                    <button className="button">Submit</button>
+                    
                     
                 </form> 
 

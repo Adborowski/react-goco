@@ -1,4 +1,5 @@
-﻿import React from 'react';
+﻿import logo from '../logo.svg';
+import React from 'react';
 
 export default class Login extends React.Component{
 
@@ -14,6 +15,8 @@ export default class Login extends React.Component{
 
         if (enteredUsername === correctUsername && enteredPassword === correctPassword){
             alert("Login successful");
+        } else {
+            console.log("Login failed");
         }
         
     }
@@ -24,7 +27,11 @@ export default class Login extends React.Component{
 
             <div className="login">
 
-                <p> Backboard </p>
+                <div className="image-frame">
+                    <img className="App-logo" alt="logo" src={logo}></img>
+                </div>
+
+                <p> Dunkit </p>
 
                 <form className="form-login" onSubmit={this.handleLogin}> 
                     <input className="login-input" id="txtUsername" type="text" name="txtUsername" placeholder="Your username"></input>

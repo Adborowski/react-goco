@@ -18,8 +18,18 @@ export default class Login extends React.Component{
 
         e.preventDefault();
 
-        if (e.target.name === "txtUsername"){ (this.setState({activeUsername:e.target.value}))};
-        if (e.target.name === "txtPassword"){ (this.setState({activePassword:e.target.value}))};
+        // handle username change
+        if (e.target.name === "txtUsername"){ (
+            this.setState({activeUsername:e.target.value}));
+
+            // validate the username
+            if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.activeUsername)){console.log("validation ok")};
+        };
+
+        // handle password change
+        if (e.target.name === "txtPassword"){
+            (this.setState({activePassword:e.target.value}))
+        };
 
     };
 
@@ -63,7 +73,7 @@ export default class Login extends React.Component{
                         name="txtPassword" 
                         placeholder="Your password">
                     </input>
-                    
+
                     {this.state.errorMessage.passwordError && <p> {this.state.errorMessage.passwordError} </p>}
 
                     <button className="button">Submit</button>

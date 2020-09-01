@@ -1,7 +1,7 @@
 ﻿import logo from '../logo.svg';
 import React from 'react';
 import { withRouter } from "react-router-dom";
-import { Button } from '@material-ui/core';
+import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
 
 class Login extends React.Component{
 
@@ -80,25 +80,33 @@ class Login extends React.Component{
 
                 <form className="form-login" onSubmit={this.handleSubmit}> 
 
-                    <input 
+                <FormControl
+                    error={this.state.usernameError ? true : false}
+                >
+                    <InputLabel htmlFor="txtUsername">Email</InputLabel>
+                    <Input 
                         onChange={this.handleChange}
                         onBlur={this.validateCredentials}
                         className="login-input" 
                         id="txtUsername" 
                         type="text" 
-                        name="txtUsername" 
-                        placeholder="Your username">
-                    </input>
-
-                    <input 
+                        name="txtUsername">
+                    </Input>
+                </FormControl>
+                    
+                <FormControl
+                    error={this.state.passwordError ? true : false}
+                >
+                    <InputLabel htmlFor="txtPassword">Password</InputLabel>
+                    <Input 
                         onChange={this.handleChange}
                         onBlur={this.validateCredentials} 
                         className="login-input" 
                         id="txtPassword" 
                         type="password" 
-                        name="txtPassword" 
-                        placeholder="Your password">
-                    </input>
+                        name="txtPassword">
+                    </Input>
+                </FormControl>
 
                     <Button disabled={!this.state.activePassword} className="button">Submit</Button>
 

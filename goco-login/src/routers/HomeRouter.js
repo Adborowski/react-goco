@@ -13,9 +13,9 @@ const HomeRouter = () => (
 
             <div className="navbar-body">
 
-                <div className="navbar-item"> <NavLink to="/home/games">Games</NavLink> </div>
-                <div className="navbar-item"> <NavLink to="/home/social">Social</NavLink> </div>
-                <div className="navbar-item"> <NavLink to="/home/training">Training</NavLink></div>
+                <div className="navbar-item"> <NavLink className="navbar-link" activeClassName="navbar-link-active" to="/home/games">Games</NavLink> </div>
+                <div className="navbar-item"> <NavLink className="navbar-link" activeClassName="navbar-link-active" to="/home/social">Social</NavLink> </div>
+                <div className="navbar-item"> <NavLink className="navbar-link" activeClassName="navbar-link-active" to="/home/training">Training</NavLink></div>
             
             </div>
 

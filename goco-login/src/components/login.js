@@ -1,6 +1,7 @@
 ﻿import logo from '../logo.svg';
 import React from 'react';
 import { withRouter } from "react-router-dom";
+import { Button } from '@material-ui/core';
 
 class Login extends React.Component{
 
@@ -14,18 +15,18 @@ class Login extends React.Component{
         loginError: ""
     }
 
+    // on keystroke in inputs
     handleChange = (e) => {
 
         e.preventDefault();
 
-        // handle username change
+        // handle change in username input
         if (e.target.name === "txtUsername"){ (
             this.setState({activeUsername:e.target.value}));
         }
 
-        // handle password change
+        // handle change in password input
         if (e.target.name === "txtPassword"){
-
             (this.setState({activePassword:e.target.value}))
         };
 
@@ -43,8 +44,6 @@ class Login extends React.Component{
         } else {
             this.setState({loginError: "Incorrect Password"})
         }
-
-       
 
     }
 
@@ -101,7 +100,7 @@ class Login extends React.Component{
                         placeholder="Your password">
                     </input>
 
-                    <button disabled={!this.state.activePassword} className="button">Submit</button>
+                    <Button disabled={!this.state.activePassword} className="button">Submit</Button>
 
                     {this.state.usernameError && <p> {this.state.usernameError} </p>}
                     {this.state.passwordError && <p> {this.state.passwordError} </p>}
@@ -116,6 +115,5 @@ class Login extends React.Component{
     }
 
 }
-
 
 export default withRouter(Login);

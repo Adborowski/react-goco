@@ -1,7 +1,8 @@
 ﻿import logo from '../logo.svg';
 import React from 'react';
+import { withRouter } from "react-router-dom";
 
-export default class Login extends React.Component{
+class Login extends React.Component{
 
     state = {
         correctUsername: "adam@goco.dk",
@@ -10,6 +11,7 @@ export default class Login extends React.Component{
         activePassword: "",
         correctPassword: "GOodCOmpany",
         passwordError: "",
+        loginError: ""
     }
 
     handleChange = (e) => {
@@ -35,7 +37,15 @@ export default class Login extends React.Component{
 
         e.preventDefault(); 
         console.log(this.state);
-        
+
+        if (this.state.activeUsername === this.state.correctUsername && this.state.activePassword === this.state.correctPassword){
+            this.props.history.push("/home");
+        } else {
+            this.setState({loginError: "Incorrect Password"})
+        }
+
+       
+
     }
 
     validateCredentials = (e) => {
@@ -57,7 +67,6 @@ export default class Login extends React.Component{
 
     }
                 
-
     render(){
 
         return(
@@ -92,10 +101,11 @@ export default class Login extends React.Component{
                         placeholder="Your password">
                     </input>
 
-                    <button disabled={this.state.usernameError || this.state.passwordError || !this.state.activePassword} className="button">Submit</button>
+                    <button disabled={!this.state.activePassword} className="button">Submit</button>
 
                     {this.state.usernameError && <p> {this.state.usernameError} </p>}
                     {this.state.passwordError && <p> {this.state.passwordError} </p>}
+                    {this.state.loginError && <p> {this.state.loginError} </p>}
 
                 </form> 
 
@@ -106,3 +116,6 @@ export default class Login extends React.Component{
     }
 
 }
+
+
+export default withRouter(Login);

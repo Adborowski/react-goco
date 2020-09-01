@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
-import Login from './components/Login.js'
 import './App.scss';
+import AppRouter from './routers/AppRouter';
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
 
     <div className="App">
       
-      <Login></Login>
+    <AppRouter></AppRouter>
 
     </div>
   );

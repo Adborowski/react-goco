@@ -12,6 +12,7 @@ const LoginButton = styled(Button)({
     color: 'white',
     height: 48,
     padding: '0 30px',
+    marginTop: '36px'
   });
 
 class Login extends React.Component{
@@ -81,13 +82,13 @@ class Login extends React.Component{
 
         return(
 
-            <div className="login">
+            <div className="comp-login">
 
                 <div className="image-frame">
-                    <img className="App-logo" alt="logo" src={logo}></img>
+                    <img alt="logo" src={logo}></img>
                 </div>
 
-                <p> Dunkit </p>
+                <p className="app-name"> Dunkit </p>
 
                 <form className="form-login" onSubmit={this.handleSubmit}> 
 
@@ -123,13 +124,17 @@ class Login extends React.Component{
 
                     <LoginButton disabled={!this.state.activePassword} className="login-button">Submit</LoginButton>
 
+                </form> 
+
+                <div className="error-display">
+                
                     {this.state.usernameError && <p> {this.state.usernameError} </p>}
                     {this.state.passwordError && <p> {this.state.passwordError} </p>}
                     {this.state.loginError && <p> {this.state.loginError} </p>}
 
-                </form> 
+                </div>
 
-            </div>
+            </div> // end of .comp-login
 
         )
 

@@ -1,13 +1,45 @@
-﻿.form-login{
-    width: 400px;
+﻿.comp-login{
+
+    position: relative;
+    width: $width-comp-login;
     margin: auto;
     display:flex;
     flex-direction: column;
-    background-color: lightcyan;
+    background-color: white;
     padding: $space-6;
     border-radius: $space-1;
+    text-align: center;
+
+}
+
+.app-name{
+    font-size: $space-4;
+}
+
+.form-login{
+    display:flex;
+    flex-direction: column;
+    margin-top: $space-3;
 }
 
 .login-button{
     margin-top: 250px;
+}
+
+.image-frame{
+    width: 100px;
+    height: 100px;
+    margin:auto;
+}
+
+.error-display{
+    color: red;
+    position: absolute;
+    width: $width-comp-login;
+    top: 100%;
+    transition: 0.5s all;
+
+    p{
+        display: block;
+    }
 }

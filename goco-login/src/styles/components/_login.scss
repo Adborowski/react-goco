@@ -3,6 +3,11 @@
     margin: auto;
     display:flex;
     flex-direction: column;
-    border: 1px solid black;
-    padding: $space-2;
+    background-color: lightcyan;
+    padding: $space-6;
+    border-radius: $space-1;
+}
+
+.login-button{
+    margin-top: 250px;
 }

@@ -82,6 +82,7 @@ class Login extends React.Component{
 
                 <FormControl
                     error={this.state.usernameError ? true : false}
+                    className="login-form-control"
                 >
                     <InputLabel htmlFor="txtUsername">Email</InputLabel>
                     <Input 
@@ -96,6 +97,7 @@ class Login extends React.Component{
                     
                 <FormControl
                     error={this.state.passwordError ? true : false}
+                    className = "login-form-control"
                 >
                     <InputLabel htmlFor="txtPassword">Password</InputLabel>
                     <Input 
@@ -108,7 +110,7 @@ class Login extends React.Component{
                     </Input>
                 </FormControl>
 
-                    <Button disabled={!this.state.activePassword} className="button">Submit</Button>
+                    <Button m={20} disabled={!this.state.activePassword} className="login-button">Submit</Button>
 
                     {this.state.usernameError && <p> {this.state.usernameError} </p>}
                     {this.state.passwordError && <p> {this.state.passwordError} </p>}

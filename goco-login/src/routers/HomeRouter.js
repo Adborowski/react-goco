@@ -1,16 +1,13 @@
 ﻿import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-
+import {BrowserRouter, Route} from 'react-router-dom';
+import Training from '../components/Training'
 
 const HomeRouter = () => (
     <BrowserRouter>
         <div>
-            <Switch>
-                <Route exact={true} path="/trainings" component={}/>
-                <Route exact={true} path="/games" component={}/>
-                <Route exact={true} path="/social" component={}/>
-                <Route path="/" component={Login}/>
-            </Switch>
+                <Route path="/training" component={Training}/>
+                <Route path="/games" component={Training}/>
+                <Route path="/social" component={Training}/>
         </div>
     </BrowserRouter>
 );

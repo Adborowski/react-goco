@@ -1,11 +1,17 @@
 ﻿import React from 'react';
+import HomeRouter from '../routers/HomeRouter';
+import Navbar from './Navbar';
 
 export default class Login extends React.Component{
 
     render(){
 
         return(
-            <h1> Hello this is home </h1>
+            <div className="comp-home">
+                <HomeRouter></HomeRouter>
+                <Navbar></Navbar>  
+            </div>
+            
         )
         
     }

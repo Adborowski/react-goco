@@ -103,7 +103,8 @@ class Login extends React.Component{
                         className="login-input" 
                         id="txtUsername" 
                         type="text" 
-                        name="txtUsername">
+                        name="txtUsername"
+                        >
                     </Input>
                 </FormControl>
                     
@@ -118,7 +119,8 @@ class Login extends React.Component{
                         className="login-input" 
                         id="txtPassword" 
                         type="password" 
-                        name="txtPassword">
+                        name="txtPassword"
+                        >
                     </Input>
                 </FormControl>
 

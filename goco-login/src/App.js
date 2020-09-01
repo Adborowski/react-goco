@@ -10,10 +10,11 @@ function App() {
     <div className="App">
 
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+      <link rel="stylesheet" href="logo-font.otf" />
       <AppRouter></AppRouter>
 
     </div>
-    
+
   );
 
 }

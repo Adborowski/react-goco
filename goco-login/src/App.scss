@@ -8,3 +8,24 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.navbar-body{
+  background-color: white;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.navbar-item{
+  background-color: white;
+  font-size: $space-5;
+  margin-left: $space-5;
+  margin-right: $space-5;
+  font-family: "druk";
+  font-style: italic;
+  padding: $space-4;
+}

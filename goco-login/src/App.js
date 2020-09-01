@@ -2,6 +2,8 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.scss';
 import AppRouter from './routers/AppRouter';
+import HomeRouter from './routers/HomeRouter'
+import Navbar from './components/Navbar';
 
 function App() {
 

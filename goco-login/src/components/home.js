@@ -8,8 +8,8 @@ export default class Login extends React.Component{
 
         return(
             <div className="comp-home">
-                <Navbar></Navbar>  
-                <HomeRouter></HomeRouter>
+            
+            <HomeRouter></HomeRouter>
                 
             </div>
             

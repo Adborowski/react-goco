@@ -24,7 +24,8 @@ class Login extends React.Component{
         activePassword: "",
         correctPassword: "GOodCOmpany",
         passwordError: "",
-        loginError: ""
+        loginError: "",
+        authSuccess: false
     }
 
     // on keystroke in inputs
@@ -52,7 +53,12 @@ class Login extends React.Component{
         console.log(this.state);
 
         if (this.state.activeUsername === this.state.correctUsername && this.state.activePassword === this.state.correctPassword){
-            this.props.history.push("/home");
+            this.setState({authSuccess: true})
+
+            setTimeout(() => {
+                this.props.history.push("/home");
+            }, 1500)
+     
         } else {
             this.setState({loginError: "Incorrect Password"})
         }
@@ -83,6 +89,8 @@ class Login extends React.Component{
         return(
 
             <div className="comp-login">
+
+                {this.state.authSuccess && <div className="welcome-message">Welcome, {this.state.activeUsername}</div>}
 
                 <div className="image-frame">
                     <img alt="logo" src={logo}></img>

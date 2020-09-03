@@ -48,3 +48,23 @@
         display: block;
     }
 }
+
+.welcome-message{
+    position: fixed;
+    margin: auto;
+    top: $space-10;
+    width: 50%;
+    left: 25%;
+    right: 25%;
+    font-family: "druk";
+    font-size: $space-7;
+    background-color: #D25D0E;
+    border-radius: $space-2;
+    -webkit-animation: fade-in 0.7s ease-in-out;
+
+}
+
+@keyframes fade-in {
+    0%   { top: -100px; }
+    100% { top: $space-10; }
+  }

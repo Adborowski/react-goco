@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import wireframe from "../wireframes/feature-trainings.png"
 
 class Training extends React.Component{
 
@@ -6,7 +7,9 @@ class Training extends React.Component{
 
         return(
             <div className="comp-training">
-                <h1> TRAINING </h1>
+                <div className="img-box-wireframe">
+                    <img alt="wireframe of trainings" src={wireframe} className="img-wireframe"></img>
+                </div>
             </div>
             
         )
